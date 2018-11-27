@@ -1,7 +1,14 @@
 .App {
   margin: auto;
-  padding: 0;
+  padding: 10px;
   height: 300px;
   width: 700px;
+  border-radius: 4px;
+  color: aliceblue;
   background-color: lightgrey;
+  box-shadow: 2px 2px 10px grey;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
