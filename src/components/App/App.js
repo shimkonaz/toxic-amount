@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import UploadArea from 'components/UploadArea';
-import ItemInfo from 'components/ItemInfo';
+import UploadArea from '../UploadArea/UploadArea';
+import ItemInfo from '../ItemInfo/ItemInfo';
 
 import './App.scss';
 
