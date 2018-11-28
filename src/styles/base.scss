@@ -1,11 +1,24 @@
+@import './colors.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,500');
+
+html {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  background: #fff;
+  color: $grey-darken-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 #root {
@@ -15,4 +28,66 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Clearfix class */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+:global(#root) {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1 {
+  margin: 0;
+  margin-right: .5em;
+  font-size: 24px;
+  font-weight: 700;
+  color: $grey-darken-color;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+::placeholder {
+  color: rgba($grey-color, 0.57);
+}
+
+:-ms-input-placeholder {
+  color: rgba($grey-color, 0.57);
+}
+
+::selection {
+  color: $light-text-color;
 }
