@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import UploadArea from '../UploadArea/UploadArea';
+import UploadArea from '../UploadArea';
 
 import './App.scss';
 
@@ -9,10 +9,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <UploadArea>
-        </UploadArea>
-        <ItemsList>
-        </ItemsList>
+        <UploadArea />
+        {/* <ItemsList>
+        </ItemsList> */}
       </div>
     );
   }

@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
-class UploadArea extends Component {
+import { UploadArrow } from '../Icons';
+import './UploadArea.scss';
 
+class UploadArea extends Component {
+  
   render() {
     return (
-      <div className="upload-area">
-        <div>
-          {/* { this.props.upload.icon } */}
+      <div className="uploadArea">
+        <div className="uploadArea__icon">
+          <UploadArrow />
         </div>
-        <div>
-          {/* { this.props.upload.title } */}
+        <div className="uploadArea__title">
+          To upload, click here <br/> or <br/> drop files in this area
         </div>
       </div>
     );
