@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
+<<<<<<< HEAD
 import UploadArea from '../UploadArea/UploadArea';
 import ItemsList from '../ItemsList';
+=======
+import UploadArea from '../UploadArea';
+>>>>>>> added elements to component
 
 import './App.scss';
 
@@ -30,9 +34,15 @@ class App extends Component {
 
     return (
       <div className="App">
+<<<<<<< HEAD
         <UploadArea>
         </UploadArea>
         <ItemsList items={this.state.mockItems}/>
+=======
+        <UploadArea />
+        {/* <ItemsList>
+        </ItemsList> */}
+>>>>>>> added elements to component
       </div>
     );
   }
