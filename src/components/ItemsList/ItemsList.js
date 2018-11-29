@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 
 import './ItemsList.scss';
@@ -25,20 +24,6 @@ const ItemsList = ({items}) => {
       { itemsList }
     </div>
   );
-=======
-import React, { Component } from 'react';
-
-import './ItemsList.scss';
-
-class ItemsList extends Component {
-
-  render() {
-    return (
-      <div className="itemsList">
-      </div>
-    );
-  }
->>>>>>> added ItemsList component
 }
 
 export default ItemsList;
