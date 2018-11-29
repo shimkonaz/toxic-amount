@@ -1,5 +1,23 @@
-@import 'colors';
+@import '../../styles/colors.scss';
 
-.item-info {
-  background-color: $grey;
+.uploadArea {
+  width: 40%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: column;
+
+  &__title {
+    height: 50px;
+    width: 60%;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 40%;
+    width: 100%;
+  }
 }
