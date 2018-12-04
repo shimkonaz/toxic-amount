@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { UploadArrow } from '../Icons';
+import { UploadArrow } from 'components/Icons';
 import './UploadArea.scss';
 
 class UploadArea extends Component {

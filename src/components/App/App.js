@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import UploadArea from '../UploadArea/UploadArea';
-import ItemsList from '../ItemsList';
+import UploadArea from 'components/UploadArea';
+import ItemsList from 'components/ItemsList';
 
-import { HARMS } from "../../consts";
+import { HARMS } from "consts";
 
 import './App.scss';
 
