@@ -3,9 +3,13 @@
       "target": "ES6",
       "module": "commonjs",
       "allowSyntheticDefaultImports": true,
-      "baseUrl": "src/",
+      "baseUrl": "./src/",
       "paths": {
-        "components/*": ["src/components/*"]
+        "*": ["*"]
       }
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
 }
