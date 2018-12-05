@@ -9,7 +9,7 @@ import './App.scss';
 
 class App extends Component {
   state = {
-    HARMS
+    items: HARMS
   }
 
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
       <div className="App">
         <UploadArea>
         </UploadArea>
-        <ItemsList items={this.state.HARMS}/>
+        <ItemsList items={this.state.items}/>
       </div>
     );
   }
