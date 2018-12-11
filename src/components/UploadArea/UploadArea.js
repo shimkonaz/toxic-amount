@@ -8,24 +8,53 @@ class UploadArea extends Component {
     super(props);
 
     this.state = {
-      file: null
+      file: null,
+      words: []
     }
   }
 
-  // tessaractRes.filter(item => item)
+  /**
+   * FLOW:
+   * 1. upload photo
+   * 2. show photo preview
+   * 3. scan for words
+   * 4. save results into redux store
+   * 5. redirect to results page
+   * 6. show results as list
+   * 7. redirect to specific item
+  */
 
-  // componentWillUnmount() {
-
-  // url.revokeObjectUrl
-  // }
+  componentWillUnmount() {
+    URL.revokeObjectURL(this.state.file);
+  }
   
   handleAreaClick = () => {
     this.inputElement.click();
   }
   
   handleFileSelection = (e) => {
+    this.storePhotoUrl(e.target.files[0]);
+    this.detectWordsInPhoto(e.target.files[0]);
+  }
+  
+  storePhotoUrl(photo) {
     this.setState({
-      file: URL.createObjectURL(e.target.files[0])
+      file: URL.createObjectURL(photo)
+    })
+  }
+  
+  detectWordsInPhoto(photo) {
+    window.Tesseract.recognize(photo, {
+      lang: 'ukr'
+    })
+    .progress(p => console.log(p))
+    .then(result => {
+      this.setState({
+        words: result.words
+          .filter(word => word.confidence > 50 && word.text.length > 3)
+          .map(word => word.text)
+      })
+      console.log(this.state.words);
     })
   }
 

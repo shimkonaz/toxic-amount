@@ -1,10 +1,8 @@
+import { HARMS } from "consts";
+
 const initState = {
-  file: {
-    url: null,
-    isLoading: false,
-    isLoaded: false, 
-    reason: ''
-  }
+  harms: HARMS,
+  words: null
 }
 
 export default initState;

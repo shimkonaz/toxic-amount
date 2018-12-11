@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import './ItemsList.scss';
 
-const ItemsList = ({items}) => {
+const ItemsList = ({harms} = this.props) => {
   return (
     <div className="itemsList">
       {
-        items.map(item =>
+        harms.map(item =>
         <div 
           className="itemInfo" 
           key={item.id}>
@@ -17,10 +18,16 @@ const ItemsList = ({items}) => {
             {item.description}
           </div>
         </div>
-      )
-    }
+        )
+      }
     </div>
   );
 }
 
-export default ItemsList;
+const mapStateToProps = (state) => {
+  return {
+    harms: state.harms
+  }  
+}
+
+export default connect(mapStateToProps)(ItemsList);
