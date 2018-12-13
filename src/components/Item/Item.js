@@ -25,8 +25,7 @@ const Item = ({match, harms} = this.props) => {
 
 const mapStateToProps = (state) => {
   return {
-    harms: state.harms,
-    id: state.id
+    harms: state.harms
   }  
 }
 

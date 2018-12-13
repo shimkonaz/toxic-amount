@@ -12,26 +12,30 @@ const ItemsList = ({harms} = this.props) => {
       <div className="itemsList">
         <Switch>
           <Route path='/items'>
-            <div>
+            <ul className="items">
               {
                 harms.map(item =>
-                  <div 
-                    className="itemInfo" 
-                    key={item.id}>
-                    <div className="item-name">
-                      {item.title}
-                    </div>
-                    <Link to={item.id}>
-                      show details
-                    </Link>
-                  </div>
+                  <Link 
+                    to={item.id}
+                    key={item.id}
+                    >
+                    <li className="itemInfo">
+                      <div className="itemTitle">
+                        {item.title}
+                      </div>
+                      <div>
+                        <i className="material-icons">
+                          keyboard_arrow_right
+                        </i>
+                      </div>
+                    </li>
+                  </Link>
                 )
               }
-            </div>
+            </ul>
           </Route>
           <Route path='/:id' component={Item} />
         </Switch>
-
       </div>
     </BrowserRouter>
   );
