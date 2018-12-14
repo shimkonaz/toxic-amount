@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/shimkonaz/toxic-amount/issues"
   },
-  "homepage": "https://github.com/shimkonaz/toxic-amount#readme",
+  "homepage": "https://shimkonaz.github.io/toxic-amount/",
   "eslintConfig": {
     "extends": "react-app"
   },
