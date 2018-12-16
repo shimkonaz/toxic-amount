@@ -1,4 +1,4 @@
-@import '../../styles/colors.scss';
+@import 'styles/colors.scss';
 
 .uploadArea {
   width: 40%;
@@ -10,6 +10,10 @@
   align-items: center;
   flex-flow: column;
   cursor: pointer;
+
+  background-size: 'cover';
+  background-position: 'center center';
+  background-repeat: 'no-repeat';
 
   &__title {
     height: 50px;

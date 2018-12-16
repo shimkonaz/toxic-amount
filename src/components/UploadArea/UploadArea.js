@@ -45,13 +45,17 @@ class UploadArea extends Component {
   
   detectWordsInPhoto(photo) {
     window.Tesseract.recognize(photo, {
-      lang: 'ukr'
+      lang: 'eng'
     })
     .progress(p => console.log(p))
     .then(result => {
       this.setState({
         words: result.words
-          .filter(word => word.confidence > 50 && word.text.length > 3)
+          .filter(
+            word => 
+              word.confidence > 50 
+              && word.text.length > 3
+            )
           .map(word => word.text)
       })
       console.log(this.state.words);
@@ -64,15 +68,12 @@ class UploadArea extends Component {
         className="uploadArea"
         onClick={this.handleAreaClick}
         style={{
-          backgroundImage: 'url(' + this.state.file + ')', 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat',
+          backgroundImage: 'url(' + this.state.file + ')'
         }}>
 
         <input
-          onChange={this.handleFileSelection}
           type="file"
+          onChange={this.handleFileSelection}
           ref={input => this.inputElement = input}
           style={{display: 'none'}} />
         
