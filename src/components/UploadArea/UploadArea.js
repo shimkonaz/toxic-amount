@@ -9,7 +9,8 @@ class UploadArea extends Component {
 
     this.state = {
       file: null,
-      words: []
+      words: [],
+      isHiddenElems: false
     }
   }
 
@@ -35,6 +36,9 @@ class UploadArea extends Component {
   handleFileSelection = (e) => {
     this.storePhotoUrl(e.target.files[0]);
     this.detectWordsInPhoto(e.target.files[0]);
+    this.setState({
+      isHiddenElems: true
+    })
   }
   
   storePhotoUrl(photo) {
@@ -68,7 +72,8 @@ class UploadArea extends Component {
         className="uploadArea"
         onClick={this.handleAreaClick}
         style={{
-          backgroundImage: 'url(' + this.state.file + ')'
+          backgroundImage: 'url(' + this.state.file + ')',
+          border: this.state.isHiddenElems ? '1px solid white' : 'none'
         }}>
 
         <input
@@ -77,11 +82,21 @@ class UploadArea extends Component {
           ref={input => this.inputElement = input}
           style={{display: 'none'}} />
         
-        <div className="uploadArea__icon">
+        <div 
+          className="uploadArea__icon"
+          style={{
+            display: this.state.isHiddenElems ? 'none' : 'block'
+            }}
+          >
           <UploadArrow />
         </div>
 
-        <div className="uploadArea__title">
+        <div 
+          className="uploadArea__title"
+          style={{
+            display: this.state.isHiddenElems ? 'none' : 'block'
+            }}
+          >
           To upload, click here <br/> or <br/>
            drop files in this area
         </div>
