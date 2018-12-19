@@ -43,7 +43,7 @@ const ItemsList = ({harms} = this.props) => {
 
 const mapStateToProps = (state) => {
   return {
-    harms: state.harms
+    harms: state.uploadReducer.harms
   }  
 }
 

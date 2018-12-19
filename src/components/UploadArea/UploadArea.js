@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import * as uploadActions from 'store/actions/uploadActions';
 import { UploadArrow } from 'components/Icons';
 import './UploadArea.scss';
 
@@ -8,8 +10,7 @@ class UploadArea extends Component {
     super(props);
 
     this.state = {
-      file: null,
-      words: [],
+      photo: null,
       isHiddenElems: false
     }
   }
@@ -26,7 +27,7 @@ class UploadArea extends Component {
   */
 
   componentWillUnmount() {
-    URL.revokeObjectURL(this.state.file);
+    URL.revokeObjectURL(this.state.photo);
   }
   
   handleAreaClick = () => {
@@ -35,35 +36,37 @@ class UploadArea extends Component {
   
   handleFileSelection = (e) => {
     this.storePhotoUrl(e.target.files[0]);
-    this.detectWordsInPhoto(e.target.files[0]);
+    this.processPhoto(e.target.files[0]);
     this.setState({
       isHiddenElems: true
     })
   }
   
-  storePhotoUrl(photo) {
+  storePhotoUrl = (photo) => {
     this.setState({
-      file: URL.createObjectURL(photo)
+      photo: URL.createObjectURL(photo)
     })
   }
+
+  extractFoundWords(result) {
+    return result.words.filter(
+      word => 
+        word.confidence > 50 
+        && word.text.length > 3
+      )
+    .map(word => word.text);
+  }
   
-  detectWordsInPhoto(photo) {
-    window.Tesseract.recognize(photo, {
-      lang: 'eng'
+  processPhoto = (photo) => {
+    return new Promise(
+      (resolve, reject) => {
+        window.Tesseract.recognize( photo, { lang: 'eng' } )
+      .then(resolve)
+      .catch(reject)
     })
-    .progress(p => console.log(p))
-    .then(result => {
-      this.setState({
-        words: result.words
-          .filter(
-            word => 
-              word.confidence > 50 
-              && word.text.length > 3
-            )
-          .map(word => word.text)
-      })
-      console.log(this.state.words);
-    })
+    .then(this.extractFoundWords)
+    .then(words => this.props.findWordsInPhotoSuccess(words))
+    .catch(err => this.props.findWordsInPhotoFailure(err))
   }
 
   render() {
@@ -72,7 +75,7 @@ class UploadArea extends Component {
         className="uploadArea"
         onClick={this.handleAreaClick}
         style={{
-          backgroundImage: 'url(' + this.state.file + ')',
+          backgroundImage: 'url(' + this.state.photo + ')',
           border: this.state.isHiddenElems ? '1px solid white' : 'none'
         }}>
 
@@ -105,4 +108,15 @@ class UploadArea extends Component {
   }
 }
 
-export default UploadArea;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    findWordsInPhotoSuccess: (words) => {
+      dispatch(uploadActions.findWordsInPhotoSuccess(words))
+    },
+    findWordsInPhotoFailure: (err) => {
+      dispatch(uploadActions.findWordsInPhotoFailure(err))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(UploadArea);

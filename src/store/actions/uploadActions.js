@@ -1,13 +1,19 @@
-const fileLoading = {
-  type: 'FILE_LOADING'
-}
+import * as types from './actionTypes';
 
-const fileLoaded = {
-  type: 'FILE_LOADED_SUCCESSFULLY',
-  payload: 'file'
-}
+export const findWordsInPhoto = () => ({
+  type: types.FIND_WORDS_IN_PHOTO
+});
 
-const fileUnuploaded = {
-  type: 'FILE_NOT_UPLOADED',
-  reason: 'error'
-}
+export const findWordsInPhotoSuccess = (words) => ({
+  type: types.FIND_WORDS_IN_PHOTO_SUCCESS,
+  payload: {
+    words
+  }
+});
+
+export const findWordsInPhotoFailure = (error) => ({
+  type: types.FIND_WORDS_IN_PHOTO_FAILURE,
+  payload: {
+    error
+  }
+});

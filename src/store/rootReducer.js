@@ -1,12 +1,8 @@
-// import { combineReducers } from 'redux';
-// import uploadReducer from './reducers/uploadReducer';
-import initState from './initState';
+import { combineReducers } from 'redux';
+import uploadReducer from './reducers/uploadReducer';
 
-const rootReducer = (state = initState, action) => {
-  return state;
-}
-// const rootReducer = combineReducers({
-//   uploadReducer
-// });
+const rootReducer = combineReducers({
+  uploadReducer
+});
 
 export default rootReducer;
