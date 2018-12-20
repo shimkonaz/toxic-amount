@@ -123,12 +123,10 @@ class UploadArea extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    findWordsInPhotoSuccess: (words) => {
-      dispatch(uploadActions.findWordsInPhotoSuccess(words))
-    },
-    findWordsInPhotoFailure: (err) => {
+    findWordsInPhotoSuccess: (words) =>
+      dispatch(uploadActions.findWordsInPhotoSuccess(words)),
+    findWordsInPhotoFailure: (err) =>
       dispatch(uploadActions.findWordsInPhotoFailure(err))
-    }
   }
 }
 

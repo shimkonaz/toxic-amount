@@ -13,14 +13,14 @@ const uploadReducer = (state = initState, action) => {
       return {
         ...state,
         isLoading: false,
-        words: action.payload.words
+        words: action.payload
       };
     
     case types.FIND_WORDS_IN_PHOTO_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload
       };
     
     default: 

@@ -6,14 +6,10 @@ export const findWordsInPhoto = () => ({
 
 export const findWordsInPhotoSuccess = (words) => ({
   type: types.FIND_WORDS_IN_PHOTO_SUCCESS,
-  payload: {
-    words
-  }
+  payload: words
 });
 
 export const findWordsInPhotoFailure = (error) => ({
   type: types.FIND_WORDS_IN_PHOTO_FAILURE,
-  payload: {
-    error
-  }
+  payload: error
 });
