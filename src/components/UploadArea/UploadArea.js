@@ -11,6 +11,7 @@ class UploadArea extends Component {
 
     this.state = {
       photo: null,
+      photoLoading: false,
       isHiddenElems: false
     }
   }
@@ -35,11 +36,12 @@ class UploadArea extends Component {
   }
   
   handleFileSelection = (e) => {
+    this.setState({
+      photoLoading: true,
+      isHiddenElems: true
+    });
     this.storePhotoUrl(e.target.files[0]);
     this.processPhoto(e.target.files[0]);
-    this.setState({
-      isHiddenElems: true
-    })
   }
   
   storePhotoUrl = (photo) => {
@@ -48,7 +50,11 @@ class UploadArea extends Component {
     })
   }
 
-  extractFoundWords(result) {
+  extractFoundWords = (result) => {
+    this.setState({
+      photoLoading: false
+    });
+
     return result.words.filter(
       word => 
         word.confidence > 50 
@@ -75,9 +81,16 @@ class UploadArea extends Component {
         className="uploadArea"
         onClick={this.handleAreaClick}
         style={{
-          backgroundImage: 'url(' + this.state.photo + ')',
-          border: this.state.isHiddenElems ? '1px solid white' : 'none'
+          backgroundImage: 'url(' + this.state.photo + ')'
         }}>
+ 
+          <div 
+            className="loader-container"
+            style={{
+              visibility: this.state.photoLoading ? 'visible' : 'hidden'
+            }}>
+            <div className="loader">Loading...</div>
+          </div>
 
         <input
           type="file"
