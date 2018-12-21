@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
 
 import * as uploadActions from 'store/actions/uploadActions';
 import { UploadArrow } from 'components/Icons';
@@ -33,6 +34,10 @@ class UploadArea extends Component {
   
   handleAreaClick = () => {
     this.inputElement.click();
+  }
+
+  redirectTo = (route) => {
+    this.props.history.push(route);
   }
   
   handleFileSelection = (e) => {
@@ -72,6 +77,7 @@ class UploadArea extends Component {
     })
     .then(this.extractFoundWords)
     .then(words => this.props.findWordsInPhotoSuccess(words))
+    .then(this.redirectTo('/items'))
     .catch(err => this.props.findWordsInPhotoFailure(err))
   }
 
@@ -130,4 +136,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(UploadArea);
+export default connect(null, mapDispatchToProps)(withRouter(UploadArea));
