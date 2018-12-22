@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from "react-router-dom";
 
-import * as uploadActions from 'store/actions/uploadActions';
+import * as actions from 'store/actions';
+import { textRecognitionService } from 'services/textRecognition';
 import { UploadArrow } from 'components/Icons';
 import './UploadArea.scss';
 
@@ -41,8 +42,11 @@ class UploadArea extends Component {
   }
   
   handleFileSelection = (e) => {
+    if(!e.target.files.length) {
+      return 
+    }
+
     this.setState({
-      photoLoading: true,
       isHiddenElems: true
     });
     this.storePhotoUrl(e.target.files[0]);
@@ -54,31 +58,21 @@ class UploadArea extends Component {
       photo: URL.createObjectURL(photo)
     })
   }
-
-  extractFoundWords = (result) => {
-    this.setState({
-      photoLoading: false
-    });
-
-    return result.words.filter(
-      word => 
-        word.confidence > 50 
-        && word.text.length > 3
-      )
-    .map(word => word.text);
-  }
   
   processPhoto = (photo) => {
-    return new Promise(
-      (resolve, reject) => {
-        window.Tesseract.recognize( photo, { lang: 'eng' } )
-      .then(resolve)
-      .catch(reject)
-    })
-    .then(this.extractFoundWords)
-    .then(words => this.props.findWordsInPhotoSuccess(words))
-    .then(this.redirectTo('/items'))
-    .catch(err => this.props.findWordsInPhotoFailure(err))
+    this.toggleLoading();
+
+    return textRecognitionService.recognize(photo)
+      .then(words => this.props.findWordsInPhotoSuccess(words))
+      .then(() => this.toggleLoading())
+      .then(() => this.redirectTo('/items'))
+      .catch(err => this.props.findWordsInPhotoFailure(err))
+  }
+
+  toggleLoading() {
+    this.setState(prevState => ({
+      photoLoading: !prevState.photoLoading
+    }));
   }
 
   render() {
@@ -130,9 +124,9 @@ class UploadArea extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     findWordsInPhotoSuccess: (words) =>
-      dispatch(uploadActions.findWordsInPhotoSuccess(words)),
+      dispatch(actions.findWordsInPhotoSuccess(words)),
     findWordsInPhotoFailure: (err) =>
-      dispatch(uploadActions.findWordsInPhotoFailure(err))
+      dispatch(actions.findWordsInPhotoFailure(err))
   }
 }
 

@@ -5,7 +5,7 @@
 export const HARMS = [
   {
     id: '1',
-    title: 'Ammonia',
+    title: 'Ammomum',
     description: `Vapors may irritate the skin, eyes, throat, and lungs. 
     Ammonia may also cause kidney and liver damage. 
     If ammonia is mixed with products containing chlorine bleach (sodium hypochlorite),

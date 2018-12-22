@@ -44,6 +44,7 @@
   "devDependencies": {
     "gh-pages": "^2.0.1",
     "node-sass": "^4.10.0",
-    "react-svg": "^7.2.0"
+    "react-svg": "^7.2.0",
+    "reselect": "^4.0.0"
   }
 }
