@@ -42,10 +42,10 @@ class ItemsList extends Component {
     <BrowserRouter>
       <div className="itemsList">
         <Switch>
-          <Route exact path='/items'>
+          <Route path='/items'>
             { this.props.matchedHarms.length ? matchedHarmsList : noMatchedHarms}
           </Route>
-          <Route exact path='/items/:id' component={Item} />
+          <Route path='/items/:id' component={Item} />
         </Switch>
       </div>
     </BrowserRouter>
