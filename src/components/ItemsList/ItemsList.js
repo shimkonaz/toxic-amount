@@ -35,7 +35,7 @@ class ItemsList extends Component {
     );
 
     const noMatchedHarms = (
-      <div className="noMatches">Upload some photo first</div>
+      <div className="noMatches">No matches yet. <br/> Upload some photo first</div>
     );
 
     return (
