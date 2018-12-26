@@ -1,13 +1,13 @@
 {
   "main.css": "/toxic-amount/static/css/main.69855fd7.chunk.css",
-  "main.js": "/toxic-amount/static/js/main.542b09af.chunk.js",
-  "main.js.map": "/toxic-amount/static/js/main.542b09af.chunk.js.map",
+  "main.js": "/toxic-amount/static/js/main.8c55b99d.chunk.js",
+  "main.js.map": "/toxic-amount/static/js/main.8c55b99d.chunk.js.map",
   "static/js/1.57cf4247.chunk.js": "/toxic-amount/static/js/1.57cf4247.chunk.js",
   "static/js/1.57cf4247.chunk.js.map": "/toxic-amount/static/js/1.57cf4247.chunk.js.map",
   "runtime~main.js": "/toxic-amount/static/js/runtime~main.109a8463.js",
   "runtime~main.js.map": "/toxic-amount/static/js/runtime~main.109a8463.js.map",
   "static/css/main.69855fd7.chunk.css.map": "/toxic-amount/static/css/main.69855fd7.chunk.css.map",
   "index.html": "/toxic-amount/index.html",
-  "precache-manifest.79dd314d2533dd94b16b6a338499d84e.js": "/toxic-amount/precache-manifest.79dd314d2533dd94b16b6a338499d84e.js",
+  "precache-manifest.ed0a8199479b0ed108b73dd07454c4ba.js": "/toxic-amount/precache-manifest.ed0a8199479b0ed108b73dd07454c4ba.js",
   "service-worker.js": "/toxic-amount/service-worker.js"
 }

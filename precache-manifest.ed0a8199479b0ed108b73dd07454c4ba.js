@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/toxic-amount/static/js/runtime~main.109a8463.js"
   },
   {
-    "revision": "542b09af4f1701bd3fb7",
-    "url": "/toxic-amount/static/js/main.542b09af.chunk.js"
+    "revision": "8c55b99de41c7b1d99d4",
+    "url": "/toxic-amount/static/js/main.8c55b99d.chunk.js"
   },
   {
     "revision": "57cf42473c91065c290e",
     "url": "/toxic-amount/static/js/1.57cf4247.chunk.js"
   },
   {
-    "revision": "542b09af4f1701bd3fb7",
+    "revision": "8c55b99de41c7b1d99d4",
     "url": "/toxic-amount/static/css/main.69855fd7.chunk.css"
   },
   {
-    "revision": "75c530e8bbe5ea874fda2a066e3c7f2e",
+    "revision": "c919bc04f818f45a7b778c8c6f2374e1",
     "url": "/toxic-amount/index.html"
   }
 ];
