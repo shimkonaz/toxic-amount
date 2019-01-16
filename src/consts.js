@@ -86,5 +86,30 @@ export const HARMS = [
     Absorption through the lungs or skin can cause central nervous system damage, 
     pneumonia, respiratory problems, kidney and liver damage, numbness, vomiting 
     and a be fatal.`
+  },
+  {
+    id: '13',
+    title: 'PHOSPHORUS',
+    description: `Absorption through the lungs or skin can cause central nervous system damage, 
+    pneumonia, respiratory problems.`
+  },
+  {
+    id: '14',
+    title: 'sodium',
+    description: ` are detergents that pose serious health threat. Young eyes may 
+    not develop properly if expose to SLS or SLES and may damage the skin’s immune system.`
+  },
+  {
+    id: '15',
+    title: 'MANTENGASE',
+    description: ` are detergents that pose serious health threat. Young eyes may 
+    not develop properly if expose to SLS or SLES and may damage the skin’s immune system.`
+  },
+  {
+    id: '16',
+    title: 'Puru',
+    description: `Highly corrosive; can burn the eyes, skin and lungs and is a respiratory
+     irritant. Long-term exposure in the air may lead to ulceration of the nasal passages 
+     and chronic skin irritation.`
   }
 ]
